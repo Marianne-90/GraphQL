@@ -1,7 +1,7 @@
 <?php
+
 require('vendor/autoload.php');
 
-use App\Models\User;
 use Illuminate\Database\Capsule\Manager as Capsule;
 
 $capsule = new Capsule;
@@ -23,10 +23,8 @@ $capsule->addConnection([
 $capsule->setAsGlobal();
 
 // Setup the Eloquent ORM... (optional; unless you've used setEventDispatcher())
+$capsule->setAsGlobal();
+
 $capsule->bootEloquent();
-
-// $user = User::find(1);
-
-// var_dump($user->toArray());
 
 require('graphql/boot.php');
